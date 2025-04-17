@@ -1,0 +1,17 @@
+spring.application.name=crudjpa
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres 
+spring.jpa.properties.hibernate.default_schema=entitymanager
+# my database name
+spring.datasource.username = postgres
+# my database password
+spring.datasource.password = postgres
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# Turn off the spring boot banner
+spring.main.banner-mode=off
+
+# Reducing the logging level
+logging.level.root=warn
