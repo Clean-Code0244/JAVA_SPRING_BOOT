@@ -7,12 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-public class CruddemoApplication extends SpringBootServletInitializer {
+public class CruddemoApplication {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(CruddemoApplication.class);
-	}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(CruddemoApplication.class, args);
