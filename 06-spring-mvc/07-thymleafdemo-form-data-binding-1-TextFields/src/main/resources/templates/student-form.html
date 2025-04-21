@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+        <!-- ${student}  must have the same name with the controller side object. -->
+        First Name : <input type="text" th:field="*{firstName}"/>
+        <br><br>
+        Last Name : <input type="text" th:field="${student.lastName}"/>
+        <br>
+        <br>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>
