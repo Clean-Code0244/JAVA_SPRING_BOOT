@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+        <!-- ${student}  must have the same name with the controller side object. -->
+        First Name : <input type="text" th:field="*{firstName}"/>
+        <br><br>
+        Last Name : <input type="text" th:field="${student.lastName}"/>
+        <br>
+        <br>
+
+        Country :
+        <select th:field="*{country}" >
+
+<!--            <option th:value="Brazil">Brazil   </option>-->
+<!--            <option th:value="France">France   </option>-->
+<!--            <option th:value="Germany">Germany   </option>-->
+<!--            <option th:value="India">India   </option>-->
+
+                <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+
+        </select>
+
+
+        <br>
+        <br>
+
+
+        Favorite Programming Language :
+
+<!--        <input type="radio" th:field="*{favoriteLanguage}" th:value="Go"> Go </input>-->
+<!--        <input type="radio" th:field="*{favoriteLanguage}" th:value="Java"> Java </input>-->
+<!--        <input type="radio" th:field="*{favoriteLanguage}" th:value="Python"> Python </input>-->
+
+        <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLang : ${languages}" th:value="${tempLang}" th:text="${tempLang}"> Go </input>-
+
+        <br>
+        <br>
+
+        <br>
+        <br>
+        Favorite Operating Systems :
+<!--        <input  type="checkbox" th:field="*{favoriteSystem}" th:value="Linux">Linux</input>-->
+<!--        <input  type="checkbox" th:field="*{favoriteSystem}" th:value="MacOS">MacOS</input>-->
+<!--        <input  type="checkbox" th:field="*{favoriteSystem}" th:value="'Microsoft Windows'">Microsoft Windows</input>-->
+        <!--  If the value (Microsoft Windows) has spaces, place it in single-quotes      -->
+
+        <input type="checkbox" th:field="*{favoriteSystem}" th:each="tempSystem : ${systems}" th:value="${tempSystem}" th:text="${tempSystem}">
+
+        <br>
+        <br>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>
